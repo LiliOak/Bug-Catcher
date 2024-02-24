@@ -18,7 +18,9 @@ public class UIFrogFrame extends UI{
 
         JButton toBugsButton = createImageButton("src\\main\\resources\\images\\buttons\\back-to-bugs.png", 0, 0, 150, 150);
         toBugsButton.addActionListener(e -> {
-            ///change to bug collection frame
+            windowJFrame.getContentPane().removeAll();
+            windowJFrame.revalidate();
+            windowJFrame.repaint();
             gm.showBugCollectionFrame();
         });
 

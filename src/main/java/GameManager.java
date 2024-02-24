@@ -12,7 +12,8 @@ public class GameManager {
     }
 
     public GameManager() {
-        mainFrame = ui.getJFrame();
+        mainFrame = createWindowJFrame();
+        
         UIStartFrame startFrame = new UIStartFrame(this);
     }
 
@@ -22,5 +23,22 @@ public class GameManager {
 
     public void showBugCollectionFrame() {
         UIBugCollectionFrame bugCollectionFrame = new UIBugCollectionFrame(this);
+    }
+
+    public void showFrogFrame() {
+        UIFrogFrame frogFrame = new UIFrogFrame(this);
+    }
+
+    protected JFrame getJFrame() {
+        return mainFrame;
+    }
+
+    private JFrame createWindowJFrame() {
+        JFrame window = new JFrame("Bug Catchers");
+        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        window.setSize(800, 600);
+        window.setResizable(false);
+        window.setLayout(null);
+        return window;
     }
 }

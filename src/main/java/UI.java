@@ -10,21 +10,8 @@ public class UI {
 
     public UI(GameManager gm) {
         this.gm = gm;
-        this.windowJFrame = createWindowJFrame();
+        this.windowJFrame = gm.getJFrame();
         
-    }
-
-    protected JFrame getJFrame() {
-        return windowJFrame;
-    }
-
-    private JFrame createWindowJFrame() {
-        JFrame window = new JFrame("Bug Catchers");
-        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        window.setSize(800, 600);
-        window.setResizable(false);
-        window.setLayout(null);
-        return window;
     }
 
     protected JPanel createBackgroundJPanel(String filename) {
@@ -80,6 +67,10 @@ public class UI {
         button.setBorderPainted(false);
         button.setFocusPainted(false);
         return button;
+    }
+
+    protected JFrame getJFrame() {
+        return windowJFrame;
     }
 
 }

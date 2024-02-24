@@ -8,6 +8,7 @@ public class UIBugCollectionFrame extends UI{
 
     public UIBugCollectionFrame(GameManager gm) {
         super(gm);
+        JFrame windowJFrame = getJFrame();
         BugCollectionFrameElements(windowJFrame);
     }
 
@@ -29,6 +30,16 @@ public class UIBugCollectionFrame extends UI{
             bugButtons[i] = btn;
             windowJFrame.add(bugButtons[i]);
         }
+
+        JButton toBugsButton = createImageButton("src\\main\\resources\\images\\buttons\\back-to-frog.png", 0, 0, 150, 150);
+        toBugsButton.addActionListener(e -> {
+            windowJFrame.getContentPane().removeAll();
+            windowJFrame.revalidate();
+            windowJFrame.repaint();
+            gm.showFrogFrame();
+        });
+
+        windowJFrame.add(toBugsButton);
 
         windowJFrame.add(backgroundJPanel);
         windowJFrame.setVisible(true);
