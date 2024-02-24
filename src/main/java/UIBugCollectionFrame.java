@@ -2,6 +2,7 @@ package main.java;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class UIBugCollectionFrame extends UI{
@@ -13,14 +14,14 @@ public class UIBugCollectionFrame extends UI{
     }
 
     private void BugCollectionFrameElements(JFrame windowJFrame){
-        JPanel backgroundJPanel = createBackgroundJPanel("src\\main\\resources\\images\\backgrounds\\pinterest_698832067209927117.jpg");
+        JPanel backgroundJPanel = createBackgroundJPanel("src\\main\\resources\\images\\backgrounds\\book.jpg");
 
-        JPanel dialogBoxJPanel = createDialogBoxJPanel("Please help me catch the bugs! I'm counting on you! \n");
+        JPanel dialogBoxJPanel = createDialogBoxJPanel("This is my field notebook! I'll keep track of the bugs we find here...\n");
 
         JButton bugButtons[] = new JButton[6];
         String names[] = {"1", "2", "3", "4", "5", "6"};
-        int x[] = {50, 250, 450, 150, 350, 550};
-        int y[] = {50, 50, 50, 200, 200, 200};
+        int x[] = {80, 210, 210, 430, 560, 560};
+        int y[] = {160, 60, 260, 160, 60, 260};
 
         for (int i = 0; i < bugButtons.length; ++i){
             JButton btn = createImageButton("src\\main\\resources\\images\\bug icons\\small blacked out\\" + names[i] + ".png", x[i], y[i], 150, 150);
@@ -39,7 +40,11 @@ public class UIBugCollectionFrame extends UI{
             gm.showFrogFrame();
         });
 
+        JLabel counter = countDisplay();
+
+        windowJFrame.add(counter);
         windowJFrame.add(toBugsButton);
+        windowJFrame.add(dialogBoxJPanel);
 
         windowJFrame.add(backgroundJPanel);
         windowJFrame.setVisible(true);

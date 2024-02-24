@@ -2,6 +2,7 @@ package main.java;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class UIFrogFrame extends UI{
@@ -24,6 +25,9 @@ public class UIFrogFrame extends UI{
             gm.showBugCollectionFrame();
         });
 
+        JLabel counter = countDisplay();
+
+        windowJFrame.add(counter);
         windowJFrame.add(toBugsButton);
         windowJFrame.add(frogJPanel);
         windowJFrame.add(dialogBoxJPanel);

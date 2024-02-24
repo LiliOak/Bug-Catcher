@@ -32,17 +32,18 @@ public class UI {
         textArea.setLineWrap(true);
         textArea.setWrapStyleWord(true);
         textArea.setEditable(false);
-        textArea.setMargin(new Insets(10, 10, 10, 10));
+        textArea.setMargin(new Insets(10, 10, 10, 100));
         textArea.setForeground(Color.white);
         textArea.setBackground(Color.black);
 
 
         JScrollPane scrollPane = new JScrollPane(textArea);
-        scrollPane.setPreferredSize(new Dimension(700, 150));
+        scrollPane.setPreferredSize(new Dimension(600, 150));
         textPanel.add(scrollPane);
         textPanel.setOpaque(false);
         scrollPane.setOpaque(false);
         scrollPane.getViewport().setOpaque(false);
+        scrollPane.setBorder(BorderFactory.createEmptyBorder());
         textPanel.setBounds(50, 400, 700, 150);
         return textPanel;
     }
@@ -68,6 +69,20 @@ public class UI {
         button.setFocusPainted(false);
         return button;
     }
+
+    protected JLabel countDisplay() {
+        JPanel countPanel = new JPanel();
+
+        JLabel heart = new JLabel();
+        heart.setIcon(new ImageIcon("src\\main\\resources\\images\\heart.png"));
+        heart.setBounds(700, 50, 100, 100);
+
+        JLabel count = new JLabel("0/0");
+        count.setFont(new Font("Comic Sans", Font.PLAIN, 30));
+        count.setForeground(Color.white);
+        count.setBounds(700, 50, 100, 50);
+        return count;
+    } 
 
     protected JFrame getJFrame() {
         return windowJFrame;
