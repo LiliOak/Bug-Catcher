@@ -10,9 +10,14 @@ public class questionOne {
         lines.add("Third line.\nFourth line.");
 
         System.out.println("Attempting to print lines with newline characters:");
-        for (String line : lines) {
-            // Bug: Newline characters are ignored due to incorrect processing
-            System.out.println(line.replaceAll("\n", ""));
-        }
+        lines.forEach(line -> System.out.println(processLine(line)));
+    }
+
+    /**
+     * Intended to process and return each line, but mistakenly removes newlines when trying to trim whitespace.
+     * Solution: replace '\n' with ' '
+     */
+    private static String processLine(String line) {
+        return line.replaceAll("\\s+$", "").replace("\n", " ");
     }
 }

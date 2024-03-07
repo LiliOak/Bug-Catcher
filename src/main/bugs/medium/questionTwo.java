@@ -2,15 +2,25 @@ package main.bugs.medium;
 
 public class questionTwo {
     public static void main(String[] args) {
-        String str1 = new String("Hello");
-        String str2 = new String("Hello");
+        String original = "Hello";
+        String modified = " Hel" + "lo".trim(); // Seems like it should be equal to "Hello"
 
-        // Bug: using '==' to compare strings which compares reference not the content
-        // The correct way to compare strings: using .equals() method
-        if (str1 == str2) {
-            System.out.println("Using '==': str1 and str2 are considered equal.");
+        // Adding complexity by involving string manipulation
+        String transformedOriginal = transformString(original);
+        String transformedModified = transformString(modified);
+
+        // Bug: using '==' to compare results of string transformations
+        // Solution: should be using '.equals()' instead
+        if (transformedOriginal == transformedModified) {
+            System.out.println("Using '==': transformedOriginal and transformedModified are considered equal.");
         } else {
-            System.out.println("Using '==': str1 and str2 are not considered equal.");
+            System.out.println("Using '==': transformedOriginal and transformedModified are not considered equal.");
         }
+    }
+
+    private static String transformString(String input) {
+        // This function does not do anything, it returns the string as originally is
+        String result = input.toLowerCase().toUpperCase();
+        return result + "";
     }
 }

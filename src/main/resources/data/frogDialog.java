@@ -31,3 +31,4 @@ public class frogDialog {
                 return "Please help me catch the bugs! I'm counting on you! \n";
         }
     }
+}

@@ -2,17 +2,17 @@ package main.bugs.easy;
 
 public class questionThree {
     public static void main(String[] args) {
-        int numberOfItems = 50;
-        int additionalItems = 10;
-        int totalCost = 1000;
+        int baseStoragePerDevice = 256; // Base storage in GB for each device.
+        int additionalStoragePerDevice = 128; // Additional storage module in GB that can be attached.
+        int numberOfDevices = 10;
 
-        // Bug: Using division instead of addition to calculate the total number
-        // of items. Should be +
-        int totalItems = numberOfItems / additionalItems;
+        // Bug: Using division instead of addition to calculate the total storage capacity per device.
+        // Should be + instead of /
+        int totalStoragePerDevice = baseStoragePerDevice / additionalStoragePerDevice;
+        int totalSystemStorage = totalStoragePerDevice * numberOfDevices;
 
-        int costPerItem = totalCost / totalItems;
-
-        System.out.println("Total items (incorrect due to logical bug): " + totalItems);
-        System.out.println("Cost per item (also incorrect): " + costPerItem);
+        System.out.println("Total storage per device: " + totalStoragePerDevice + " GB");
+        System.out.println("Total number of devices: " + numberOfDevices);
+        System.out.println("Total system storage: " + totalSystemStorage + " GB");
     }
 }
