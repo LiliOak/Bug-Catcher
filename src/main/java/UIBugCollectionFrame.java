@@ -5,6 +5,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import main.resources.data.bugcollectionDialog;
+
 public class UIBugCollectionFrame extends UI{
 
     public UIBugCollectionFrame(GameManager gm) {
@@ -16,7 +18,7 @@ public class UIBugCollectionFrame extends UI{
     private void BugCollectionFrameElements(JFrame windowJFrame){
         JPanel backgroundJPanel = createBackgroundJPanel("src\\main\\resources\\images\\backgrounds\\book.jpg");
 
-        JPanel dialogBoxJPanel = createDialogBoxJPanel("This is my field notebook! I'll keep track of the bugs we find here...\n");
+        JPanel dialogBoxJPanel = createDialogBoxJPanel(bugcollectionDialog.getDialog(Flag.TUTORIAL));
 
         JButton bugButtons[] = new JButton[6];
         String names[] = {"1", "2", "3", "4", "5", "6"};

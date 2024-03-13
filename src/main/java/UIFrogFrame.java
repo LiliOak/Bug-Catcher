@@ -5,6 +5,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import main.resources.data.frogDialog;
+
 public class UIFrogFrame extends UI{
     public UIFrogFrame(GameManager gm) {
         super(gm);
@@ -15,7 +17,7 @@ public class UIFrogFrame extends UI{
     private void FrogFrameElements(JFrame windowJFrame) {
         JPanel backgroundJPanel = createBackgroundJPanel("src\\main\\resources\\images\\backgrounds\\pinterest_698832067209927748.jpg");
         JPanel frogJPanel = createTheFrogJPanel();
-        JPanel dialogBoxJPanel = createDialogBoxJPanel("Welcome to Bug Catching, new guy! There are ??? bugs loose in the code, and your job is to help correct them. But don't stress too much! I'm here to help you out.\n");
+        JPanel dialogBoxJPanel = createDialogBoxJPanel(frogDialog.getDialog(Flag.TUTORIAL));
 
         JButton toBugsButton = createImageButton("src\\main\\resources\\images\\buttons\\back-to-bugs.png", 0, 0, 150, 150);
         toBugsButton.addActionListener(e -> {

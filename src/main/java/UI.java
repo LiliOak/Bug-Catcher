@@ -7,10 +7,12 @@ import javax.swing.border.Border;
 public class UI {
     protected GameManager gm;
     protected JFrame windowJFrame;
+    private int text_index;
 
     public UI(GameManager gm) {
         this.gm = gm;
         this.windowJFrame = gm.getJFrame();
+        this.text_index = 0;
         
     }
 
@@ -25,9 +27,14 @@ public class UI {
         return bgPanel;
     }
 
-    protected JPanel createDialogBoxJPanel(String text) {
+    protected JPanel createDialogBoxJPanel(String[] text) {
         JPanel textPanel = new JPanel();
-        JTextArea textArea = new JTextArea(text);
+        System.err.println(text_index);
+
+        JButton previous = createImageButton("src\\main\\resources\\images\\buttons\\backwards_arrow_for_dialog.png", 0, 550, 100, 50);
+        JButton next = createImageButton("src\\main\\resources\\images\\buttons\\forwards_arrow_for_dialog.png", 700, 550, 100, 50);
+
+        JTextArea textArea = new JTextArea(text[0]);
         textArea.setFont(new Font("Comic Sans", Font.PLAIN, 15));
         textArea.setLineWrap(true);
         textArea.setWrapStyleWord(true);
@@ -36,15 +43,31 @@ public class UI {
         textArea.setForeground(Color.white);
         textArea.setBackground(Color.black);
 
+        textPanel.add(previous);
+        textPanel.add(next);
 
         JScrollPane scrollPane = new JScrollPane(textArea);
         scrollPane.setPreferredSize(new Dimension(600, 150));
         textPanel.add(scrollPane);
+        
         textPanel.setOpaque(false);
         scrollPane.setOpaque(false);
         scrollPane.getViewport().setOpaque(false);
         scrollPane.setBorder(BorderFactory.createEmptyBorder());
         textPanel.setBounds(50, 400, 700, 150);
+
+
+        next.addActionListener(e -> {
+            if (text_index < text.length - 1) {
+                textArea.setText(text[++text_index]);}
+        });
+
+        previous.addActionListener(e -> {
+            if (text_index > 0) {
+                textArea.setText(text[--text_index]);
+            }
+        });
+
         return textPanel;
     }
 
