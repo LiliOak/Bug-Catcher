@@ -4,6 +4,7 @@ import java.awt.*;
 import javax.swing.*;
 import javax.swing.border.Border;
 
+/** This class is the parent class for all the UI classes, stores shared elements. */
 public class UI {
     protected GameManager gm;
     protected JFrame windowJFrame;

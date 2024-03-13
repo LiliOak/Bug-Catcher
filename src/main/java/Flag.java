@@ -1,5 +1,6 @@
 package main.java;
 
+/** Stores the global flag which is used to keep track of game state. */
 public enum Flag {
     TUTORIAL,
     BUG1,

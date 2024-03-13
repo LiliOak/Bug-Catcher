@@ -6,16 +6,13 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+/** This class is the UI for the start frame, and stores specific behaviour for that frame. */
 public class UIStartFrame extends UI{
     public UIStartFrame(GameManager gm) {
         super(gm);
         this.windowJFrame = getJFrame();
-
-        boolean completedTutorial = false; //FIRST FLAG OF THE DAY
         
-        if (!completedTutorial){
-            StartFrameElements(windowJFrame);
-        }
+        StartFrameElements(windowJFrame);
         
     }
 
